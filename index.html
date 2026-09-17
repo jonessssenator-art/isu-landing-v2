@@ -62,14 +62,17 @@
   }
   .cart-btn:hover{color:var(--accent)}
   .cart-btn b{color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
-  .mobile-menu{display:none;position:relative}
-  .mobile-menu > button{display:flex;align-items:center;gap:6px;background:none;border:0;color:var(--fg)}
+  .mobile-menu{display:none}
+  .mobile-menu > button{display:flex;align-items:center;gap:6px;background:none;border:0;color:var(--fg);padding:6px}
   .mobile-menu nav{
-    position:absolute;top:calc(100% + 16px);left:-20px;right:-20px;
-    background:var(--bg-soft);border-bottom:1px solid var(--line);
-    padding:18px 20px 24px;display:flex;flex-direction:column;gap:14px;
-    box-shadow:0 18px 30px rgba(0,0,0,.35);
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:4px 6% 10px;display:flex;flex-direction:column;
+    box-shadow:0 18px 30px rgba(0,0,0,.4);
+    z-index:41;
   }
+  .mobile-menu nav a{padding:16px 0;border-top:1px solid var(--line);font-size:16px}
+  .mobile-menu nav a:first-child{border-top:0}
   @media(max-width:760px){
     .site-header{padding:14px 5%;min-height:72px}
     .site-header > nav{display:none}
