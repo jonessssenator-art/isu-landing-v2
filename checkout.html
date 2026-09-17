@@ -12,7 +12,6 @@
   :root{
     --bg:#0a0908;
     --bg-soft:#141210;
-    --bg-plate:#efe8db;
     --fg:#f3ede2;
     --fg-dim:#a79c8c;
     --line:rgba(243,237,226,.14);
@@ -99,7 +98,7 @@
   .order-summary h2{font-size:18px;font-weight:800;margin-bottom:18px}
   .summary-line{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:10px 0}
   .summary-line + .summary-line{border-top:1px solid var(--line)}
-  .summary-thumb{width:48px;height:48px;border-radius:10px;overflow:hidden;background:var(--bg-plate);position:relative}
+  .summary-thumb{width:48px;height:48px;border-radius:10px;overflow:hidden;background:transparent;position:relative}
   .summary-thumb img{position:absolute;left:0;top:50%;width:300%;max-width:none;transform:translate(0,-50%)}
   .summary-thumb img.single{position:static;width:82%;height:82%;margin:9%;object-fit:contain;transform:none}
   .summary-main a{font-size:13.5px;font-weight:700}
@@ -250,8 +249,8 @@
 
   <script>
     var PRODUCTS = {
-      protein: { name: 'Протеин ISU', format: '900 г', price: 3900, image: 'assets/protein-three-flavours.webp', flavours: ['Шоколад', 'Ваниль', 'Клубника'] },
-      creatine: { name: 'Креатин ISU', format: '20 стиков', price: 2400, image: 'assets/creatine-packaging-v14.webp', single: true }
+      protein: { name: 'Протеин ISU', format: '900 г', price: 3900, image: 'assets/protein-cutout.png', flavours: ['Шоколад', 'Ваниль', 'Клубника'] },
+      creatine: { name: 'Креатин ISU', format: '20 стиков', price: 2400, image: 'assets/creatine-cutout.png', single: true }
     };
     var money = function (n) { return new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 }).format(n) + ' ₽'; };
     var SHIPPING_FEE = 450;
