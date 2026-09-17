@@ -92,7 +92,7 @@
     background-size:cover;background-position:center 82%;
     will-change:transform;transform:translateY(0);
   }
-  .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(6,5,4,.25) 0%, rgba(6,5,4,.12) 22%, rgba(6,5,4,.5) 55%, rgba(6,5,4,.96) 86%, rgba(4,3,2,.98) 100%)}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(6,5,4,.12) 0%, rgba(6,5,4,.05) 22%, rgba(6,5,4,.28) 55%, rgba(6,5,4,.62) 86%, rgba(4,3,2,.7) 100%)}
   .hero-inner{position:relative;z-index:2;width:100%;padding:0 max(56px,6vw) 24px;display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;gap:40px}
   @media(max-width:720px){.hero-inner{padding:0 24px 18px;flex-direction:column;align-items:flex-start;gap:24px}}
   .hero-text{text-align:left}
@@ -170,12 +170,6 @@
   .assortment-list{display:flex;flex-wrap:wrap;gap:7px}
   .assortment-tag{font-size:11.5px;color:var(--fg-dim);border:1px solid var(--line);border-radius:99px;padding:5px 10px}
   .product-controls{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap}
-  .qty-stepper{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line-strong);border-radius:99px;padding:3px}
-  .qty-stepper button{width:26px;height:26px;border-radius:50%;border:0;background:none;color:var(--fg);display:flex;align-items:center;justify-content:center}
-  .qty-stepper button:hover{background:var(--line)}
-  .qty-stepper button:disabled{opacity:.35;cursor:not-allowed}
-  .qty-stepper span{min-width:2ch;text-align:center;font-weight:700;font-size:13px}
-  .product-buy-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .product-price{font-size:17px;font-weight:800}
   .add-btn{
     display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#141005;font-weight:700;font-size:13px;
@@ -236,6 +230,14 @@
   .cart-total-row{display:flex;align-items:center;justify-content:space-between;font-size:16px}
   .cart-total-row b{font-size:20px;font-weight:800}
   .cart-note{font-size:12.5px;color:var(--fg-dim)}
+  .cart-promo{display:flex;gap:8px}
+  .cart-promo input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--line-strong);border-radius:99px;padding:12px 16px;color:var(--fg);font-size:14px;font-family:inherit}
+  .cart-promo input::placeholder{color:var(--fg-dim)}
+  .cart-promo input:focus{outline:none;border-color:var(--accent)}
+  .cart-promo button{background:none;border:1px solid var(--line-strong);border-radius:99px;padding:12px 18px;color:var(--fg);font-weight:700;font-size:13px;white-space:nowrap;transition:border-color .25s var(--ease),color .25s var(--ease)}
+  .cart-promo button:hover{border-color:var(--accent);color:var(--accent)}
+  .cart-promo-note{font-size:12.5px;color:var(--fg-dim);display:none}
+  .cart-promo-note.is-visible{display:block}
   .cart-checkout-note{font-size:13px;color:var(--fg-dim);background:rgba(224,122,63,.1);border:1px solid rgba(224,122,63,.35);padding:14px 16px;border-radius:12px;display:none}
   .cart-checkout-note.is-visible{display:block}
 
@@ -350,18 +352,11 @@
             <button type="button" class="flavour-pill" data-flavour="Клубника" data-index="2" aria-pressed="false" style="--swatch:#71273e"><i></i>Клубника</button>
           </div>
           <div class="product-controls">
-            <div class="qty-stepper" data-qty-for="protein">
-              <button type="button" data-step="-1" aria-label="Уменьшить количество">−</button>
-              <span data-qty-value>1</span>
-              <button type="button" data-step="1" aria-label="Увеличить количество">+</button>
-            </div>
-            <div class="product-buy-row">
-              <span class="product-price">3 900 ₽</span>
-              <button type="button" class="add-btn" data-add="protein">
-                <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M6 8h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-                В корзину
-              </button>
-            </div>
+            <span class="product-price">3 900 ₽</span>
+            <button type="button" class="add-btn" data-add="protein">
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M6 8h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+              В корзину
+            </button>
           </div>
         </div>
       </article>
@@ -381,18 +376,11 @@
             <span class="assortment-tag">Персик</span>
           </div>
           <div class="product-controls">
-            <div class="qty-stepper" data-qty-for="creatine">
-              <button type="button" data-step="-1" aria-label="Уменьшить количество">−</button>
-              <span data-qty-value>1</span>
-              <button type="button" data-step="1" aria-label="Увеличить количество">+</button>
-            </div>
-            <div class="product-buy-row">
-              <span class="product-price">2 400 ₽</span>
-              <button type="button" class="add-btn" data-add="creatine">
-                <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M6 8h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-                В корзину
-              </button>
-            </div>
+            <span class="product-price">2 400 ₽</span>
+            <button type="button" class="add-btn" data-add="creatine">
+              <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M6 8h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+              В корзину
+            </button>
           </div>
         </div>
       </article>
@@ -433,8 +421,13 @@
     </div>
     <div id="cartLines" class="cart-lines"></div>
     <div id="cartBottom" class="cart-bottom" hidden>
+      <div class="cart-promo">
+        <input type="text" id="promoInput" placeholder="Промокод" autocomplete="off" />
+        <button type="button" id="promoApplyBtn">Применить</button>
+      </div>
+      <p class="cart-promo-note" id="promoNote">Это демо-макет: проверку промокодов подключим позже.</p>
       <div class="cart-total-row"><span>Товары</span><b id="cartTotal">0 ₽</b></div>
-      <p class="cart-note">Доставка и промокод рассчитываются на следующем шаге.</p>
+      <p class="cart-note">Доставка рассчитывается на следующем шаге.</p>
       <button type="button" class="btn" id="checkoutBtn" style="justify-content:center">Оформить заказ →</button>
       <p class="cart-checkout-note" id="checkoutNote">Это демо-макет: оформление заказа подключим, когда согласуем дизайн.</p>
     </div>
@@ -509,19 +502,6 @@
         btn.setAttribute('aria-pressed', 'true');
         selectedFlavourIndex = Number(btn.dataset.index);
         proteinImg.style.transform = 'translate(-' + (selectedFlavourIndex * 100 / 3) + '%, -50%)';
-      });
-    });
-
-    // ---------- quantity steppers ----------
-    document.querySelectorAll('.qty-stepper').forEach(function (stepper) {
-      var valueEl = stepper.querySelector('[data-qty-value]');
-      stepper.querySelectorAll('button[data-step]').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var next = Number(valueEl.textContent) + Number(btn.dataset.step);
-          next = Math.max(1, Math.min(20, next));
-          valueEl.textContent = next;
-          stepper.querySelector('[data-step="-1"]').disabled = next <= 1;
-        });
       });
     });
 
@@ -612,14 +592,14 @@
       document.getElementById('cartTotal').textContent = money(cartTotal());
       bottomEl.hidden = false;
       document.getElementById('checkoutNote').classList.remove('is-visible');
+      document.getElementById('promoNote').classList.remove('is-visible');
     }
 
     // ---------- add-to-cart buttons ----------
     document.querySelectorAll('[data-add]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var productId = btn.dataset.add;
-        var card = btn.closest('.product-card');
-        var qty = Number(card.querySelector('[data-qty-value]').textContent);
+        var qty = 1;
         var variant = productId === 'protein'
           ? PRODUCTS.protein.flavours[selectedFlavourIndex]
           : 'Микс вкусов';
@@ -641,6 +621,9 @@
     overlay.addEventListener('click', closeCart);
     document.getElementById('checkoutBtn').addEventListener('click', function () {
       document.getElementById('checkoutNote').classList.add('is-visible');
+    });
+    document.getElementById('promoApplyBtn').addEventListener('click', function () {
+      document.getElementById('promoNote').classList.add('is-visible');
     });
 
     // ---------- toast ----------
