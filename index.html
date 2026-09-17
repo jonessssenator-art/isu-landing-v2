@@ -238,8 +238,6 @@
   .cart-promo button:hover{border-color:var(--accent);color:var(--accent)}
   .cart-promo-note{font-size:12.5px;color:var(--fg-dim);display:none}
   .cart-promo-note.is-visible{display:block}
-  .cart-checkout-note{font-size:13px;color:var(--fg-dim);background:rgba(224,122,63,.1);border:1px solid rgba(224,122,63,.35);padding:14px 16px;border-radius:12px;display:none}
-  .cart-checkout-note.is-visible{display:block}
 
   /* ---------- toast ---------- */
   .toast{
@@ -428,8 +426,7 @@
       <p class="cart-promo-note" id="promoNote">Это демо-макет: проверку промокодов подключим позже.</p>
       <div class="cart-total-row"><span>Товары</span><b id="cartTotal">0 ₽</b></div>
       <p class="cart-note">Доставка рассчитывается на следующем шаге.</p>
-      <button type="button" class="btn" id="checkoutBtn" style="justify-content:center">Оформить заказ →</button>
-      <p class="cart-checkout-note" id="checkoutNote">Это демо-макет: оформление заказа подключим, когда согласуем дизайн.</p>
+      <a class="btn" id="checkoutBtn" href="checkout.html" style="justify-content:center">Оформить заказ →</a>
     </div>
   </aside>
 
@@ -591,7 +588,6 @@
       });
       document.getElementById('cartTotal').textContent = money(cartTotal());
       bottomEl.hidden = false;
-      document.getElementById('checkoutNote').classList.remove('is-visible');
       document.getElementById('promoNote').classList.remove('is-visible');
     }
 
@@ -619,9 +615,6 @@
     document.getElementById('cartOpenBtn').addEventListener('click', openCart);
     document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
     overlay.addEventListener('click', closeCart);
-    document.getElementById('checkoutBtn').addEventListener('click', function () {
-      document.getElementById('checkoutNote').classList.add('is-visible');
-    });
     document.getElementById('promoApplyBtn').addEventListener('click', function () {
       document.getElementById('promoNote').classList.add('is-visible');
     });
